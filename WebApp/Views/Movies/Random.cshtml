@@ -1,8 +1,25 @@
-﻿@model  WebApp.Models.Movie
+﻿@model  WebApp.ViewModels.RandomMovieViewModel
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    /* This is a Comment - Below we dynamically set class name*/
+    var className = Model.Customers.Count>=2 ? "popularMovie" : null;
 }
 
-<h2>@Model.Name</h2>
+@*  This is also a comment block
+    it can be multine
+*@
 
+<h2>@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count==0) {
+    <text>No one has tented this movie before</text>
+}
+else {
+    <ul>
+        @foreach(var customer in Model.Customers) {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
