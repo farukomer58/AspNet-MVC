@@ -35,6 +35,8 @@ namespace WebApp.Controllers
         }
 
         // GET: CUSTOM ROUTE, linked to movies/released 
+        // Transform to Attribute route BETTER Aproach -> look attribute route constraints
+        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month) {
             return Content(year+ "/" + month);
         }
