@@ -34,6 +34,10 @@ namespace WebApp.Controllers
             return Content(String.Format("pageIndex={0} & sortBy={1} ", pageIndex, sortBy));
         }
 
+        // GET: CUSTOM ROUTE, linked to movies/released 
+        public ActionResult ByReleaseDate(int year, int month) {
+            return Content(year+ "/" + month);
+        }
 
     }
 }
